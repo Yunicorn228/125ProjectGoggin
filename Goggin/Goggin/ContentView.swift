@@ -22,7 +22,7 @@ struct ContentView: View {
                 Text("GOGIN")
                     .font(.largeTitle)
                     .fontWeight(.semibold)
-                    .foregroundColor(Color.white)
+                    .foregroundColor(Color.pink)
             }
         }
 
