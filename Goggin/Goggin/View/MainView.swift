@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct MainView: View {
     var body: some View {
         
         ZStack{
@@ -22,15 +22,15 @@ struct ContentView: View {
                 Text("GOGIN")
                     .font(.largeTitle)
                     .fontWeight(.semibold)
-                    .foregroundColor(Color.pink)
+                    .foregroundColor(Color.white)
             }
         }
 
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        MainView()
     }
 }

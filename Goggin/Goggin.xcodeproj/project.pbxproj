@@ -8,18 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		08033C9C2B74425F00E158E5 /* GogginApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08033C9B2B74425F00E158E5 /* GogginApp.swift */; };
-		08033C9E2B74425F00E158E5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08033C9D2B74425F00E158E5 /* ContentView.swift */; };
+		08033C9E2B74425F00E158E5 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08033C9D2B74425F00E158E5 /* MainView.swift */; };
 		08033CA02B74426000E158E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08033C9F2B74426000E158E5 /* Assets.xcassets */; };
 		08033CA42B74426000E158E5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08033CA32B74426000E158E5 /* Preview Assets.xcassets */; };
+		08033CAD2B74521800E158E5 /* UserInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08033CAC2B74521800E158E5 /* UserInputView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		08033C982B74425F00E158E5 /* Goggin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Goggin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08033C9B2B74425F00E158E5 /* GogginApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GogginApp.swift; sourceTree = "<group>"; };
-		08033C9D2B74425F00E158E5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		08033C9D2B74425F00E158E5 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		08033C9F2B74426000E158E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		08033CA12B74426000E158E5 /* Goggin.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Goggin.entitlements; sourceTree = "<group>"; };
 		08033CA32B74426000E158E5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		08033CAC2B74521800E158E5 /* UserInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInputView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,8 +54,9 @@
 		08033C9A2B74425F00E158E5 /* Goggin */ = {
 			isa = PBXGroup;
 			children = (
+				08033CAB2B74517C00E158E5 /* ViewModel */,
+				08033CAA2B74516200E158E5 /* View */,
 				08033C9B2B74425F00E158E5 /* GogginApp.swift */,
-				08033C9D2B74425F00E158E5 /* ContentView.swift */,
 				08033C9F2B74426000E158E5 /* Assets.xcassets */,
 				08033CA12B74426000E158E5 /* Goggin.entitlements */,
 				08033CA22B74426000E158E5 /* Preview Content */,
@@ -67,6 +70,22 @@
 				08033CA32B74426000E158E5 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		08033CAA2B74516200E158E5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				08033C9D2B74425F00E158E5 /* MainView.swift */,
+				08033CAC2B74521800E158E5 /* UserInputView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		08033CAB2B74517C00E158E5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,7 +158,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08033C9E2B74425F00E158E5 /* ContentView.swift in Sources */,
+				08033C9E2B74425F00E158E5 /* MainView.swift in Sources */,
+				08033CAD2B74521800E158E5 /* UserInputView.swift in Sources */,
 				08033C9C2B74425F00E158E5 /* GogginApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
