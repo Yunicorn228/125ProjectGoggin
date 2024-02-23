@@ -11,7 +11,8 @@ import SwiftUI
 struct GogginApp: App {
     var body: some Scene {
         WindowGroup {
-            UserInputView()
+            MainView()
+            //FitnessViewController()
         }
     }
 }

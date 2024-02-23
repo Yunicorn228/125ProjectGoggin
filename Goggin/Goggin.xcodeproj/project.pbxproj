@@ -12,6 +12,7 @@
 		08033CA02B74426000E158E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08033C9F2B74426000E158E5 /* Assets.xcassets */; };
 		08033CA42B74426000E158E5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08033CA32B74426000E158E5 /* Preview Assets.xcassets */; };
 		08033CAD2B74521800E158E5 /* UserInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08033CAC2B74521800E158E5 /* UserInputView.swift */; };
+		08033CB52B892F6800E158E5 /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08033CB42B892F6800E158E5 /* LandingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		08033CA12B74426000E158E5 /* Goggin.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Goggin.entitlements; sourceTree = "<group>"; };
 		08033CA32B74426000E158E5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		08033CAC2B74521800E158E5 /* UserInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInputView.swift; sourceTree = "<group>"; };
+		08033CB42B892F6800E158E5 /* LandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 			children = (
 				08033C9D2B74425F00E158E5 /* MainView.swift */,
 				08033CAC2B74521800E158E5 /* UserInputView.swift */,
+				08033CB42B892F6800E158E5 /* LandingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -158,6 +161,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08033CB52B892F6800E158E5 /* LandingView.swift in Sources */,
 				08033C9E2B74425F00E158E5 /* MainView.swift in Sources */,
 				08033CAD2B74521800E158E5 /* UserInputView.swift in Sources */,
 				08033C9C2B74425F00E158E5 /* GogginApp.swift in Sources */,
