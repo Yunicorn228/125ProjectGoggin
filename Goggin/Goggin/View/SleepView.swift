@@ -9,11 +9,11 @@ import SwiftUI
 
 struct SleepView: View {
     @State private var calorieIntakeProgress: Float = 0.4
-    let recommendedFoods = [("Fish", 500), ("Beef", 800), ("Veggie", 230)]
+    let recommendedFoods = [("Good Night", 10), ("Deep sleep", 10), ("Sweet dream", 15)]
     
     var body: some View {
         VStack {
-            Text("Calorie Intake Goal")
+            Text("Sleep Goal")
                 .font(.largeTitle)
                 .foregroundColor(.white) // Set title color to white
                 .padding(.bottom, 2)
@@ -24,14 +24,14 @@ struct SleepView: View {
                 .scaleEffect(x: 1, y: 2, anchor: .center)
                 .padding()
             
-            Text("You completed \(Int(calorieIntakeProgress * 100))% of calorie intake goal")
+            Text("You completed \(Int(calorieIntakeProgress * 100))% of sleep goal")
                 .font(.title)
                 .fontWeight(.semibold)
                 .foregroundColor(.white) // Set text color to white
                 .padding()
             
             VStack(alignment: .leading) {
-                Text("Recommended Food:")
+                Text("Recommended meditation:")
                     .font(.headline)
                     .foregroundColor(.white) // Set text color to white
                     .padding(.bottom, 5)
@@ -41,7 +41,7 @@ struct SleepView: View {
                         Text(food.0)
                             .foregroundColor(.white) // Set text color to white
                         Spacer()
-                        Text("\(food.1) cal")
+                        Text("\(food.1) min")
                             .foregroundColor(.white) // Set text color to white
                     }
                     .padding(.vertical, 2)
@@ -58,10 +58,10 @@ struct SleepView: View {
         .background(Color.black) // Set the background to black
         .navigationBarTitleDisplayMode(.inline)
         // Set navigation bar elements to white if this view is embedded in a NavigationView
-        .navigationBarItems(leading: Button(action: {}) {
-            Image(systemName: "arrow.left")
-                .foregroundColor(.white)
-        })
+//        .navigationBarItems(leading: Button(action: {}) {
+//            Image(systemName: "arrow.left")
+//                .foregroundColor(.white)
+//        })
         .navigationBarColor(backgroundColor: .black, tintColor: .white) // This is a custom modifier, see below
     }
 }

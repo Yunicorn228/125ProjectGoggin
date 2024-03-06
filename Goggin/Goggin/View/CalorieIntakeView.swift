@@ -58,10 +58,7 @@ struct CalorieIntakeView: View {
         .background(Color.black) // Set the background to black
         .navigationBarTitleDisplayMode(.inline)
         // Set navigation bar elements to white if this view is embedded in a NavigationView
-        .navigationBarItems(leading: Button(action: {}) {
-            Image(systemName: "arrow.left")
-                .foregroundColor(.white)
-        })
+
         .navigationBarColor(backgroundColor: .black, tintColor: .white) // This is a custom modifier, see below
     }
 }
