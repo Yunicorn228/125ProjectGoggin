@@ -8,35 +8,41 @@
 import SwiftUI
 
 struct CalorieIntakeView: View {
-    // Replace with your actual data source
     @State private var calorieIntakeProgress: Float = 0.4
     let recommendedFoods = [("Fish", 500), ("Beef", 800), ("Veggie", 230)]
     
     var body: some View {
         VStack {
-            // Back button and progress
-            // Progress bar
-            ProgressView("Calorie Intake Goal", value: calorieIntakeProgress, total: 1.0)
+            Text("Calorie Intake Goal")
+                .font(.largeTitle)
+                .foregroundColor(.white) // Set title color to white
+                .padding(.bottom, 2)
+            
+            // Progress view without the built-in title
+            ProgressView(value: calorieIntakeProgress, total: 1.0)
                 .progressViewStyle(LinearProgressViewStyle(tint: .blue))
-                .scaleEffect(x: 1, y: 2, anchor: .center) // Modify for your desired thickness
+                .scaleEffect(x: 1, y: 2, anchor: .center)
                 .padding()
             
-            // Completion percentage text
             Text("You completed \(Int(calorieIntakeProgress * 100))% of calorie intake goal")
                 .font(.title)
                 .fontWeight(.semibold)
+                .foregroundColor(.white) // Set text color to white
                 .padding()
             
-            // Recommended food list
             VStack(alignment: .leading) {
                 Text("Recommended Food:")
                     .font(.headline)
+                    .foregroundColor(.white) // Set text color to white
                     .padding(.bottom, 5)
+                
                 ForEach(recommendedFoods, id: \.0) { food in
                     HStack {
-                        Text(food.0) // Food name
+                        Text(food.0)
+                            .foregroundColor(.white) // Set text color to white
                         Spacer()
-                        Text("\(food.1) cal") // Calorie count
+                        Text("\(food.1) cal")
+                            .foregroundColor(.white) // Set text color to white
                     }
                     .padding(.vertical, 2)
                 }
@@ -48,9 +54,43 @@ struct CalorieIntakeView: View {
             
             Spacer()
         }
-        // If using a navigation view, to hide the back button
-        .navigationBarTitleDisplayMode(.inline) // If using a navigation view, to adjust the title display mode
         .padding()
+        .background(Color.black) // Set the background to black
+        .navigationBarTitleDisplayMode(.inline)
+        // Set navigation bar elements to white if this view is embedded in a NavigationView
+        .navigationBarItems(leading: Button(action: {}) {
+            Image(systemName: "arrow.left")
+                .foregroundColor(.white)
+        })
+        .navigationBarColor(backgroundColor: .black, tintColor: .white) // This is a custom modifier, see below
+    }
+}
+
+// Add this extension if it's not already in your project
+extension View {
+    func navigationBarColor(backgroundColor: UIColor, tintColor: UIColor) -> some View {
+        self.modifier(NavigationBarModifier(backgroundColor: backgroundColor, tintColor: tintColor))
+    }
+}
+
+struct NavigationBarModifier: ViewModifier {
+    var backgroundColor: UIColor
+    var tintColor: UIColor
+    
+    func body(content: Content) -> some View {
+        content
+            .onAppear {
+                let appearance = UINavigationBarAppearance()
+                appearance.configureWithOpaqueBackground()
+                appearance.backgroundColor = backgroundColor
+                appearance.titleTextAttributes = [.foregroundColor: tintColor]
+                appearance.largeTitleTextAttributes = [.foregroundColor: tintColor]
+                
+                UINavigationBar.appearance().standardAppearance = appearance
+                UINavigationBar.appearance().compactAppearance = appearance
+                UINavigationBar.appearance().scrollEdgeAppearance = appearance
+                UINavigationBar.appearance().tintColor = tintColor
+            }
     }
 }
 
@@ -59,4 +99,5 @@ struct CalorieIntakeView_Previews: PreviewProvider {
         CalorieIntakeView()
     }
 }
+
 

@@ -16,7 +16,7 @@ struct StepView: View {
         VStack {
             // Back button and progress
             // Progress bar
-            ProgressView("Calorie Intake Goal", value: calorieIntakeProgress, total: 1.0)
+            ProgressView("Stepping Goal", value: calorieIntakeProgress, total: 1.0)
                 .progressViewStyle(LinearProgressViewStyle(tint: .blue))
                 .scaleEffect(x: 1, y: 2, anchor: .center) // Modify for your desired thickness
                 .padding()
