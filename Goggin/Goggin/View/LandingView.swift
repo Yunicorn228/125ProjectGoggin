@@ -1,8 +1,14 @@
 import SwiftUI
 
 struct LandingView: View {
+    
+    @EnvironmentObject var manager: HealthManager
+    
+    
     @State private var foodIntakeProgress: Float = 0.5
     @State private var stepsProgress: Float = 0.7
+    
+    
     @State private var sleepProgress: Float = 0.65
     @State private var navigateToCalorieIntake = false
     @State private var navigateToSteps = false // State for Steps navigation

@@ -1,9 +1,12 @@
 import SwiftUI
 
 struct UserInputView: View {
-    @State private var height: String = ""
-    @State private var weight: String = ""
-    @State private var age: String = ""
+    
+    @EnvironmentObject var healthManager: HealthManager
+
+    @State private var height: String = "100"
+    @State private var weight: String = "100"
+    @State private var age: String = "100"
     @State private var selectedGender: Gender = .other
     @State private var shouldNavigate = false
     @State private var calculatedBMR: Double?
@@ -46,9 +49,9 @@ struct UserInputView: View {
                 }) {
                     Text("Submit")
                         .frame(minWidth: 0, maxWidth: .infinity)
-                        .frame(height: 50)
+                        .frame(height: 70)
                         .foregroundColor(.white)
-                        .background(Color.blue)
+                        .background(Color.black)
                         .cornerRadius(10)
                 }
                 .padding()
@@ -59,13 +62,16 @@ struct UserInputView: View {
                 }
             }
             
-            
-            
         }
         .navigationViewStyle(StackNavigationViewStyle())
         .navigationBarBackButtonHidden(true)
         .background(Color.black.edgesIgnoringSafeArea(.all))
     }
+    
+    
+    
+    
+    
     //
     func calculateBMR(weight: Double, height: Double, age: Int, gender: Gender) -> Double {
         switch gender {

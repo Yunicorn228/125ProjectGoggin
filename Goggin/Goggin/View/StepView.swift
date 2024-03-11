@@ -8,6 +8,11 @@
 import SwiftUI
 
 struct StepView: View {
+    
+    @EnvironmentObject var healthManager: HealthManager
+    
+//    let stepCount: String
+    
     @State private var calorieIntakeProgress: Float = 0.4
     let recommendedFoods = [("Park", 5.2), ("UTC", 1.2), ("Gym", 0.8)]
     

@@ -7,12 +7,22 @@
 
 import SwiftUI
 
+
 struct CalorieIntakeView: View {
+    
+    @EnvironmentObject var healthManager: HealthManager
+    
+//    let CalorieIntake: String
+    
     @State private var calorieIntakeProgress: Float = 0.4
     let recommendedFoods = [("Fish", 500), ("Beef", 800), ("Veggie", 230)]
     
     var body: some View {
         VStack {
+//            Text("Sleep: \(healthManager.sleep)")
+//                .font(.largeTitle)
+//                .foregroundColor(.white) // Set title color to white
+//                .padding(.bottom, 2)
             Text("Calorie Intake Goal")
                 .font(.largeTitle)
                 .foregroundColor(.white) // Set title color to white
@@ -31,7 +41,7 @@ struct CalorieIntakeView: View {
                 .padding()
             
             VStack(alignment: .leading) {
-                Text("Recommended Food:")
+                Text("Recommended Food: ")
                     .font(.headline)
                     .foregroundColor(.white) // Set text color to white
                     .padding(.bottom, 5)

@@ -16,6 +16,7 @@
 		08033CB92B896F6000E158E5 /* CalorieIntakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08033CB82B896F6000E158E5 /* CalorieIntakeView.swift */; };
 		08033CBB2B990A3900E158E5 /* StepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08033CBA2B990A3900E158E5 /* StepView.swift */; };
 		08033CBD2B990A4F00E158E5 /* SleepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08033CBC2B990A4F00E158E5 /* SleepView.swift */; };
+		08033CBF2B9F6DBD00E158E5 /* HealthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08033CBE2B9F6DBD00E158E5 /* HealthManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		08033CB82B896F6000E158E5 /* CalorieIntakeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieIntakeView.swift; sourceTree = "<group>"; };
 		08033CBA2B990A3900E158E5 /* StepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepView.swift; sourceTree = "<group>"; };
 		08033CBC2B990A4F00E158E5 /* SleepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepView.swift; sourceTree = "<group>"; };
+		08033CBE2B9F6DBD00E158E5 /* HealthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				08033C9F2B74426000E158E5 /* Assets.xcassets */,
 				08033CA12B74426000E158E5 /* Goggin.entitlements */,
 				08033CA22B74426000E158E5 /* Preview Content */,
+				08033CBE2B9F6DBD00E158E5 /* HealthManager.swift */,
 			);
 			path = Goggin;
 			sourceTree = "<group>";
@@ -177,6 +180,7 @@
 				08033CAD2B74521800E158E5 /* UserInputView.swift in Sources */,
 				08033C9C2B74425F00E158E5 /* GogginApp.swift in Sources */,
 				08033CB92B896F6000E158E5 /* CalorieIntakeView.swift in Sources */,
+				08033CBF2B9F6DBD00E158E5 /* HealthManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,6 +307,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Goggin/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Talk is cheap, let me see your step count.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -339,6 +344,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Goggin/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Talk is cheap, let me see your step count.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;

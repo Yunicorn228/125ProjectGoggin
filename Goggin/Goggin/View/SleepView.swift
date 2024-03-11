@@ -8,6 +8,11 @@
 import SwiftUI
 
 struct SleepView: View {
+    
+    @EnvironmentObject var healthManager: HealthManager
+    
+//    let sleepCount: String
+    
     @State private var calorieIntakeProgress: Float = 0.4
     let recommendedFoods = [("Good Night", 10), ("Deep sleep", 10), ("Sweet dream", 15)]
     

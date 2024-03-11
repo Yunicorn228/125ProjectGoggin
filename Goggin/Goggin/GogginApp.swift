@@ -9,10 +9,12 @@ import SwiftUI
 
 @main
 struct GogginApp: App {
+    @StateObject var manager = HealthManager()
+    
     var body: some Scene {
         WindowGroup {
             MainView()
-            //FitnessViewController()
+                .environmentObject(manager)
         }
     }
 }
