@@ -4,12 +4,12 @@ struct UserInputView: View {
     
     @EnvironmentObject var healthManager: HealthManager
 
-    @State private var height: String = "100"
-    @State private var weight: String = "100"
-    @State private var age: String = "100"
+    @State private var height: String = ""
+    @State private var weight: String = ""
+    @State private var age: String = ""
     @State private var selectedGender: Gender = .other
     @State private var shouldNavigate = false
-    @State private var calculatedBMR: Double?
+    @State private var calculatedBMR: Float?
     
     enum Gender: String, CaseIterable, Identifiable {
         case male = "Male"
@@ -61,7 +61,13 @@ struct UserInputView: View {
                     EmptyView()
                 }
             }
+            .onAppear{
+                healthManager.fetchTodayCal()
+                healthManager.fetchTodaySleep()
+                healthManager.fetchTodaySteps()
+            }
             
+            .navigationBarBackButtonHidden(true)
         }
         .navigationViewStyle(StackNavigationViewStyle())
         .navigationBarBackButtonHidden(true)
@@ -69,20 +75,33 @@ struct UserInputView: View {
     }
     
     
-    
-    
-    
-    //
-    func calculateBMR(weight: Double, height: Double, age: Int, gender: Gender) -> Double {
+
+    func calculateBMR(weight: Double, height: Double, age: Int, gender: Gender) -> Float {
+        let weightComponent: Double
+        let heightComponent: Double
+        let ageComponent: Double
+        let baseValue: Double
+
         switch gender {
         case .female:
-            return 655 + (9.6 * weight) + (1.8 * height) - (4.7 * Double(age))
+            weightComponent = 9.6 * weight
+            heightComponent = 1.8 * height
+            ageComponent = 4.7 * Double(age)
+            baseValue = 655
         case .male:
-            return 66 + (13.7 * weight) + (5 * height) - (6.8 * Double(age))
-        default:
-            return 0 // Or some default value, or handle "other" differently
+            weightComponent = 13.7 * weight
+            heightComponent = 5 * height
+            ageComponent = 6.8 * Double(age)
+            baseValue = 66
+        case .other:
+            let maleBMR = 66 + (13.7 * weight) + (5 * height) - (6.8 * Double(age))
+            let femaleBMR = 655 + (9.6 * weight) + (1.8 * height) - (4.7 * Double(age))
+            return Float((maleBMR + femaleBMR) / 2)
         }
+
+        return Float(baseValue + weightComponent + heightComponent - ageComponent)
     }
+
 
 }
 

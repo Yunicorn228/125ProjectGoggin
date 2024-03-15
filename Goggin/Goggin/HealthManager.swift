@@ -18,9 +18,13 @@ class HealthManager: ObservableObject{
     
     let healthStore = HKHealthStore()
     
-    @Published var cal: String = ""
-    @Published var step: String = ""
-    @Published var sleep: String = ""
+    @Published var cal: Float = 100
+    @Published var step: Float = 12000
+    @Published var sleep: Float = 6.5
+    
+    @Published var calCount: Float = 0
+    @Published var stepCount: Float = 0
+    @Published var totalSleepHours: Float = 0
     
     
     init(){
@@ -31,11 +35,8 @@ class HealthManager: ObservableObject{
         Task{
             do{
                 try await healthStore.requestAuthorization(toShare: [], read: healthTypes)
-                fetchTodayCal()
-                fetchTodaySleep()
-                fetchTodaySteps()
             }catch {
-                print("Error fetching health data")
+//                print("Error fetching health data")
             }
         }
     }
@@ -45,14 +46,17 @@ class HealthManager: ObservableObject{
         let predicate = HKQuery.predicateForSamples(withStart: .startOfDay, end: Date())
         let query = HKStatisticsQuery(quantityType: steps, quantitySamplePredicate: predicate){_, result, error in
             guard let quantity = result?.sumQuantity(), error == nil else{
-                print("Error feeching todays steps")
+//                print("Error feeching todays steps")
                 return
             }
+
+            _ = quantity.doubleValue(for: .count())
+            DispatchQueue.main.async {
+                self.step = self.stepCount
+            }
             
-            let stepCount = quantity.doubleValue(for: .count())
-            self.step = stepCount.formattedString() ?? "N/A"
-            print(self.step)
         }
+//        print("This is step",self.step)
         healthStore.execute(query)
         
     }
@@ -63,21 +67,25 @@ class HealthManager: ObservableObject{
 
         let query = HKStatisticsQuery(quantityType: cal, quantitySamplePredicate: predicate){_, result, error in
             guard let quantity = result?.sumQuantity(), error == nil else{
-                print("Error feeching todays calories")
+//                print("Error feeching todays calories")
                 return
             }
             
-            let calCount = quantity.doubleValue(for: .count())
-            self.cal = calCount.formattedString() ?? "N/A"
+            _ = quantity.doubleValue(for: .count())
+            
+            DispatchQueue.main.async {
+                self.cal = self.calCount
+            }
             print(self.cal)
         }
+        print(self.cal)
         healthStore.execute(query)
         
     }
     
     func fetchTodaySleep() {
         guard let sleepType = HKObjectType.categoryType(forIdentifier: .sleepAnalysis) else {
-            print("Sleep Analysis is not available in HealthKit")
+//            print("Sleep Analysis is not available in HealthKit")
             return
         }
         
@@ -86,7 +94,7 @@ class HealthManager: ObservableObject{
         
         let query = HKSampleQuery(sampleType: sleepType, predicate: predicate, limit: HKObjectQueryNoLimit, sortDescriptors: nil) { _, samples, error in
             guard let sleepSamples = samples as? [HKCategorySample], error == nil else {
-                print("Error fetching today's sleep data: \(error?.localizedDescription ?? "Unknown error")")
+//                print("Error fetching today's sleep data: \(error?.localizedDescription ?? "Unknown error")")
                 return
             }
             
@@ -99,12 +107,13 @@ class HealthManager: ObservableObject{
             // Update UI by dispatching to the main thread
             DispatchQueue.main.async {
                 // Assuming you have a published property for sleep hours in your HealthManager
-                self.sleep = totalSleepHours.formattedString() ?? "N/A"
+                self.sleep = self.totalSleepHours
             }
             
-            print("Total sleep time for today: \(totalSleepHours) hours")
+//            print("Total sleep time for today: \(totalSleepHours) hours")
         }
-        
+//        print("Total sleep time for today: \(self.sleep) hours")
+
         healthStore.execute(query)
     }
 

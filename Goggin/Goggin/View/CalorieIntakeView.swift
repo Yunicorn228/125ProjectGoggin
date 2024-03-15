@@ -9,13 +9,13 @@ import SwiftUI
 
 
 struct CalorieIntakeView: View {
-    
+    var progress: Float
+        
     @EnvironmentObject var healthManager: HealthManager
     
 //    let CalorieIntake: String
-    
-    @State private var calorieIntakeProgress: Float = 0.4
-    let recommendedFoods = [("Fish", 500), ("Beef", 800), ("Veggie", 230)]
+
+    let recommendedFoods = [("Fish", 410), ("Beef", 800), ("Chicken", 450), ("Egg", 70)]
     
     var body: some View {
         VStack {
@@ -29,12 +29,12 @@ struct CalorieIntakeView: View {
                 .padding(.bottom, 2)
             
             // Progress view without the built-in title
-            ProgressView(value: calorieIntakeProgress, total: 1.0)
+            ProgressView(value: progress, total: 1.0)
                 .progressViewStyle(LinearProgressViewStyle(tint: .blue))
                 .scaleEffect(x: 1, y: 2, anchor: .center)
                 .padding()
             
-            Text("You completed \(Int(calorieIntakeProgress * 100))% of calorie intake goal")
+            Text("You completed \(Int(progress * 100))% of calorie intake goal")
                 .font(.title)
                 .fontWeight(.semibold)
                 .foregroundColor(.white) // Set text color to white
@@ -103,7 +103,7 @@ struct NavigationBarModifier: ViewModifier {
 
 struct CalorieIntakeView_Previews: PreviewProvider {
     static var previews: some View {
-        CalorieIntakeView()
+        CalorieIntakeView(progress:0.5)
     }
 }
 

@@ -8,12 +8,10 @@
 import SwiftUI
 
 struct SleepView: View {
-    
+    var progress: Float
     @EnvironmentObject var healthManager: HealthManager
     
 //    let sleepCount: String
-    
-    @State private var calorieIntakeProgress: Float = 0.4
     let recommendedFoods = [("Good Night", 10), ("Deep sleep", 10), ("Sweet dream", 15)]
     
     var body: some View {
@@ -24,12 +22,12 @@ struct SleepView: View {
                 .padding(.bottom, 2)
             
             // Progress view without the built-in title
-            ProgressView(value: calorieIntakeProgress, total: 1.0)
+            ProgressView(value: progress, total: 1.0)
                 .progressViewStyle(LinearProgressViewStyle(tint: .blue))
                 .scaleEffect(x: 1, y: 2, anchor: .center)
                 .padding()
             
-            Text("You completed \(Int(calorieIntakeProgress * 100))% of sleep goal")
+            Text("You completed \(Int(progress * 100))% of sleep goal")
                 .font(.title)
                 .fontWeight(.semibold)
                 .foregroundColor(.white) // Set text color to white
@@ -73,6 +71,6 @@ struct SleepView: View {
 
 struct SleepView_Previews: PreviewProvider {
     static var previews: some View {
-        SleepView()
+        SleepView(progress:0.5)
     }
 }

@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct StepView: View {
-    
+    var progress: Float
     @EnvironmentObject var healthManager: HealthManager
     
 //    let stepCount: String
-    
-    @State private var calorieIntakeProgress: Float = 0.4
-    let recommendedFoods = [("Park", 5.2), ("UTC", 1.2), ("Gym", 0.8)]
+    let recommendedFoods = [("Amazon Locker - Verano", 2.5),
+                            ("University Town Center", 1.2),
+                            ("Anteater Recreation Center", 0.2),
+                            ("Donald Bren Hall (DBH)", 2.2),
+                            ("Aldrich Park", 2.3)]
     
     var body: some View {
         VStack {
@@ -24,12 +26,12 @@ struct StepView: View {
                 .padding(.bottom, 2)
             
             // Progress view without the built-in title
-            ProgressView(value: calorieIntakeProgress, total: 1.0)
+            ProgressView(value: progress, total: 1.0)
                 .progressViewStyle(LinearProgressViewStyle(tint: .blue))
                 .scaleEffect(x: 1, y: 2, anchor: .center)
                 .padding()
             
-            Text("You completed \(Int(calorieIntakeProgress * 100))% of step count goal")
+            Text("You completed \(Int(progress * 100))% of step count goal")
                 .font(.title)
                 .fontWeight(.semibold)
                 .foregroundColor(.white) // Set text color to white
@@ -70,6 +72,6 @@ struct StepView: View {
 
 struct StepView_Previews: PreviewProvider {
     static var previews: some View {
-        StepView()
+        StepView(progress:0.5)
     }
 }

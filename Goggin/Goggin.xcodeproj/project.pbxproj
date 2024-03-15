@@ -17,6 +17,8 @@
 		08033CBB2B990A3900E158E5 /* StepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08033CBA2B990A3900E158E5 /* StepView.swift */; };
 		08033CBD2B990A4F00E158E5 /* SleepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08033CBC2B990A4F00E158E5 /* SleepView.swift */; };
 		08033CBF2B9F6DBD00E158E5 /* HealthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08033CBE2B9F6DBD00E158E5 /* HealthManager.swift */; };
+		08725D942BA26E600006ABDF /* mongoDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08725D932BA26E600006ABDF /* mongoDB.swift */; };
+		08725D962BA26F020006ABDF /* EC2Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08725D952BA26F020006ABDF /* EC2Connection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		08033CBA2B990A3900E158E5 /* StepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepView.swift; sourceTree = "<group>"; };
 		08033CBC2B990A4F00E158E5 /* SleepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepView.swift; sourceTree = "<group>"; };
 		08033CBE2B9F6DBD00E158E5 /* HealthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthManager.swift; sourceTree = "<group>"; };
+		08725D932BA26E600006ABDF /* mongoDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mongoDB.swift; sourceTree = "<group>"; };
+		08725D952BA26F020006ABDF /* EC2Connection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EC2Connection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +75,8 @@
 				08033CA12B74426000E158E5 /* Goggin.entitlements */,
 				08033CA22B74426000E158E5 /* Preview Content */,
 				08033CBE2B9F6DBD00E158E5 /* HealthManager.swift */,
+				08725D932BA26E600006ABDF /* mongoDB.swift */,
+				08725D952BA26F020006ABDF /* EC2Connection.swift */,
 			);
 			path = Goggin;
 			sourceTree = "<group>";
@@ -175,7 +181,9 @@
 			files = (
 				08033CB52B892F6800E158E5 /* LandingView.swift in Sources */,
 				08033CBD2B990A4F00E158E5 /* SleepView.swift in Sources */,
+				08725D962BA26F020006ABDF /* EC2Connection.swift in Sources */,
 				08033C9E2B74425F00E158E5 /* MainView.swift in Sources */,
+				08725D942BA26E600006ABDF /* mongoDB.swift in Sources */,
 				08033CBB2B990A3900E158E5 /* StepView.swift in Sources */,
 				08033CAD2B74521800E158E5 /* UserInputView.swift in Sources */,
 				08033C9C2B74425F00E158E5 /* GogginApp.swift in Sources */,
@@ -302,9 +310,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Goggin/Goggin.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Goggin/Preview Content\"";
+				DEVELOPMENT_TEAM = 848PR72SD5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "Talk is cheap, let me see your step count.";
@@ -318,7 +328,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.3;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.3;
@@ -339,9 +349,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Goggin/Goggin.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Goggin/Preview Content\"";
+				DEVELOPMENT_TEAM = 848PR72SD5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "Talk is cheap, let me see your step count.";
@@ -355,7 +367,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.3;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.3;
